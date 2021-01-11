@@ -1,7 +1,9 @@
 const Navbar = () => {
+  const title ="Mani Personal Blog"
   return (
+    
     <nav className="navbar">
-      <h1>Mani Blog</h1>
+      <h1>{title}</h1>
       <div className="links">
         <a href="/">Home</a>
         <a href='/creat' style={{
