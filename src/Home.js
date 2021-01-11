@@ -1,25 +1,39 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
+import BlogList from "./BlogList";
 
-
-
+//تعریف لیست وبلاگ های ما به صورت یک اری در آبحکت
 const Home = () => {
-  const familhy="morattab"
-  // let name ='mani';
-  const [name, setName] = useState("mani");
-  const[age,setAge]=useState(25);
-  const handleClick = () => {
-    setName("sahar");
-    setAge(30);
+  const [blogs,setBlogs]=useState([
+    {title:'Mani Movassagh music',body:'i like iranian classic music',author:'Mani Movassagh',id:'1'},
+    {title:'Sahar foto',body:'sahar like fotographi',author:'Sahar Morattab',id:'2'},
+    {title:'dental care',body:'i like implants and dental',author:'Mojde',id:'3'}
     
-  };
+  ]);
+  const [name,setName]=useState('Mojde');
 
+
+  const handleDelete=(id)=>{
+    const newBlogs=blogs.filter(blog=>blog.id !==id)
+    setBlogs(newBlogs)
+    
+  }
+
+useEffect(()=>{
+console.log('use effect ran');
+console.log(name);
+},[name])
+
+
+
+  //return datas base on arrays and objects methods
   return (
     <div className="home">
-      <h2>HomePage</h2>
-      <p>{name} {familhy} is {age} years old</p>
-      <button style={{backgroundColor:'blue',color:'white',width:'100px',height:'50px',borderRadius:'100'}} onClick={handleClick}>Click me</button>
-    </div>
+    <BlogList handleDelete={handleDelete} blogs={blogs} title="Mani Blog is working!!"/>
+    <button onClick={()=>setName('mahshid')}>change name</button>
+    <p>{name}</p>
+        </div>
   );
-};
+ }
 
-export default Home;
+
+ export default Home;
