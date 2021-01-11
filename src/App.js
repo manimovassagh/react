@@ -1,14 +1,17 @@
 import Navbar from "./navbar";
-import Home from './Home';
+import Home from "./Home";
 
 // const person = [name:'mani',family:'movassagh']
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      
+        <Navbar />
+      
       <div className="content">
         <Home />
       </div>
+      
     </div>
   );
 }
